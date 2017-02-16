@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ListItem from './list_item.js';
-import List from './list.js';
+import ListContainer from './list_container';
 
 class App extends Component {
   render() {
@@ -13,11 +12,8 @@ class App extends Component {
           <h2>Welcome to React</h2>
 
         </div>
-        <ListItem text="Jonas från Ekonomi"/>
-        <List/ >
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h3> Deltagare </h3>
+        <ListContainer />
       </div>
     );
   }
