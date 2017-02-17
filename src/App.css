@@ -18,6 +18,11 @@
   font-size: large;
 }
 
+.done  {
+  text-decoration: line-through;
+  background-color: #E5E4E3;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
