@@ -12,7 +12,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
 
         </div>
-        <h3> Deltagare </h3>
+        <h3> Mötespunkter </h3>
         <ListContainer />
       </div>
     );

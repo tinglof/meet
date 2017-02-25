@@ -13,7 +13,7 @@ class ListContainer extends Component {
 
    addItem() {
 
-    if(this.textInput.value != ""){
+    if(this.textInput.value.trim() !== ""){
       const arrayCopy = this.state.items.slice();
 
       var newItem = {
@@ -22,12 +22,13 @@ class ListContainer extends Component {
       };
 
       arrayCopy.push(newItem);
-      this.textInput.value = "";
+
 
       this.setState({
         items: arrayCopy
       });
     }
+    this.textInput.value = "";
   }
 
   enterPress(e){
