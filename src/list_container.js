@@ -142,7 +142,11 @@ calculatePercentage(){
 
           <span className="input-group-btn">
 
-          <button type="button" className="btn-primary btn" onClick={ this.addItem }>Add</button>
+          <button type="button" className="btn btn-default add" onClick={ this.addItem }>
+
+          Add &nbsp;
+          <span className="glyphicon glyphicon-plus"></span>
+          </button>
         </span>
       </div>
     </div>
@@ -151,7 +155,7 @@ calculatePercentage(){
     </div>
       <div className="col-xs-4 col-xs-offset-4">
       <button type="Button" className="btn-warning btn pull-right" onClick={this.clearCheckItems}> Clear Checked </button>
-      <p className="pull-left"> {this.calculateTime()} minutes </p>
+      <p className="pull-left grey"> {this.calculateTime()} minutes </p>
       </div>
 
     </div>

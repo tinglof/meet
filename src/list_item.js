@@ -63,11 +63,14 @@ class ListItem extends Component {
   }
 
   renderCommentList(){
-    const toRenderComments = this.state.comments.map( (comment) => <li className="list-group-item" key={comment.id}> {comment.text} </li>)
+    const toRenderComments = this.state.comments.map( (comment) => <li className="list-group-item" key={comment.id}>
+    <span className="glyphicon glyphicon-user pull-left"></span>
+    <span className="pull-left grey"> &nbsp;User </span>
+     <i> {comment.text} </i> </li>)
 
     if(this.state.comments.length !== 0 ){
       return (
-        <div className="col-xs-10 col-xs-offset-2">
+        <div className="col-xs-12">
         <ul className="list-group">
         {toRenderComments}
         </ul>
@@ -88,20 +91,9 @@ class ListItem extends Component {
       <div>
         <li key={this.props.id} onClick={this.toggleInput} className={"list-group-item " + (this.state.checked ? "done" : "" )}>
           {this.props.text}<input onClick={this.boxChecked} type="checkbox" className="pull-right" />
-          <span className="time"> {this.state.time} min </span>
+          <span className="time grey"> {this.state.time} min </span>
 
         </li>
-
-
-        <div className="input-group">
-        <input onChange={this.updateNumberField} value={this.state.time} className="form-control" type="text" placeholder={this.state.time} />
-
-        <span className="input-group-addon">
-          Change time
-        </span>
-
-        </div>
-
 
         {this.renderCommentList()}
 
@@ -109,12 +101,26 @@ class ListItem extends Component {
           <input onChange={this.updateTextField} value={this.state.inputTextField} className="form-control" type="text" placeholder="Comment" />
 
           <span className="input-group-btn">
-            <button type="submit" onClick={this.addComment} className="btn-default btn">Add comment</button>
+            <button type="submit" onClick={this.addComment} className="btn-default btn comments">
+
+              Comment &nbsp;
+                <span className="glyphicon glyphicon-comment"> </span>
+              </button>
           </span>
 
         </div>
 
 
+        <div className="input-group">
+        <input onChange={this.updateNumberField} value={this.state.time} className="form-control" type="text" placeholder={this.state.time} />
+
+        <span className="input-group-addon">
+          Change time &nbsp;
+        <span className="glyphicon glyphicon-time">
+        </span>
+        </span>
+
+        </div>
 
       </div>
     );
@@ -128,7 +134,8 @@ class ListItem extends Component {
         <li key={this.props.id} onClick={this.toggleInput} className={"list-group-item " + (this.state.checked ? "done" : "" )}>
           {this.props.text}<input onClick={this.boxChecked} type="checkbox" className="pull-right" />
            <span className={"pull-left badge " + (this.state.comments.length === 0  ? "hidden" : "" )} > { this.state.comments.length }</span>
-           <span className="time"> {this.state.time} min </span>
+          <span className={"" + (this.state.comments.length !== 0 ? "": "pull-left glyphicon glyphicon-chevron-down")}> </span>
+           <span className="time grey"> {this.state.time} min </span>
         </li>
       </div>
     );
