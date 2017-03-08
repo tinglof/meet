@@ -10,7 +10,7 @@ class List extends Component {
     }
 
     console.log(this.props.items);
-    const toRender = this.props.items.map( (listItem) => <ListItem id={listItem.id} text={listItem.text} /> );
+    const toRender = this.props.items.map( (listItem) => <ListItem id={listItem.id} key={listItem.id} text={listItem.text} time={listItem.time} updateCheckedItems={this.props.updateCheckedItems} /> );
 
     return (
       <ul className="list-group">

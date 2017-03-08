@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 
 class ListItem extends Component {
 
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
 
     this.toggleInput = this.toggleInput.bind(this);
     this.boxChecked = this.boxChecked.bind(this);
     this.updateTextField = this.updateTextField.bind(this);
+    this.updateNumberField = this.updateNumberField.bind(this);
     this.addComment = this.addComment.bind(this);
 
     this.state = {
-      checked: true,
+      checked: false,
       expanded: false,
       inputTextField: "",
+      inputNumberField: "",
       comments: [],
+      time: this.props.time,
     }
   }
 
@@ -24,15 +27,23 @@ class ListItem extends Component {
 
   boxChecked(e){
     e.stopPropagation();
+    let newState = !this.state.checked;
+
     this.setState({
-      checked: !this.state.checked
+      checked: newState,
     })
 
+    this.props.updateCheckedItems(this.props.id, newState);
   }
 
   updateTextField (e) {
     this.setState({inputTextField: e.target.value});
     console.log(this.state.inputTextField);
+  }
+
+  updateNumberField (e) {
+    this.setState({time: e.target.value});
+    console.log(this.state.inputNumberField);
   }
 
   addComment () {
@@ -49,7 +60,6 @@ class ListItem extends Component {
       comments: arrToUpdate,
       inputTextField: "",
     });
-
   }
 
   renderCommentList(){
@@ -57,9 +67,11 @@ class ListItem extends Component {
 
     if(this.state.comments.length !== 0 ){
       return (
+        <div className="col-xs-10 col-xs-offset-2">
         <ul className="list-group">
         {toRenderComments}
         </ul>
+        </div>
       )
     }else {
       return ("");
@@ -74,9 +86,22 @@ class ListItem extends Component {
 
     return (
       <div>
-        <li key={this.props.id} onClick={this.toggleInput} className={"list-group-item " + (this.state.checked ? "" : "done" )}>
+        <li key={this.props.id} onClick={this.toggleInput} className={"list-group-item " + (this.state.checked ? "done" : "" )}>
           {this.props.text}<input onClick={this.boxChecked} type="checkbox" className="pull-right" />
+          <span className="time"> {this.state.time} min </span>
+
         </li>
+
+
+        <div className="input-group">
+        <input onChange={this.updateNumberField} value={this.state.time} className="form-control" type="text" placeholder={this.state.time} />
+
+        <span className="input-group-addon">
+          Change time
+        </span>
+
+        </div>
+
 
         {this.renderCommentList()}
 
@@ -84,19 +109,26 @@ class ListItem extends Component {
           <input onChange={this.updateTextField} value={this.state.inputTextField} className="form-control" type="text" placeholder="Comment" />
 
           <span className="input-group-btn">
-            <button type="submit" onClick={this.addComment} className="button-primary btn">Add comment</button>
+            <button type="submit" onClick={this.addComment} className="btn-default btn">Add comment</button>
           </span>
+
         </div>
+
+
+
       </div>
     );
   }
 
   renderNormal() {
+
+
     return (
       <div>
-        <li key={this.props.id} onClick={this.toggleInput} className={"list-group-item " + (this.state.checked ? "" : "done" )}>
+        <li key={this.props.id} onClick={this.toggleInput} className={"list-group-item " + (this.state.checked ? "done" : "" )}>
           {this.props.text}<input onClick={this.boxChecked} type="checkbox" className="pull-right" />
-          <span className="pull-left"> { this.state.comments.length }</span>
+           <span className={"pull-left badge " + (this.state.comments.length === 0  ? "hidden" : "" )} > { this.state.comments.length }</span>
+           <span className="time"> {this.state.time} min </span>
         </li>
       </div>
     );
