@@ -2,30 +2,27 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 10s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
 
 .App-intro {
   font-size: large;
 }
+
 
 .done  {
   text-decoration: line-through;
   background-color: #E5E4E3;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.app-container .ingress {
+  color: #aaa;
+  font-family: 'Open sans';
+  font-size: 18px;
+  margin-bottom: 30x;
+}
+
+.app-container h2 {
+  font-family: 'Montserrat';
+  font-size: 42px;
 }
 
 .time{
@@ -48,7 +45,7 @@
 .app-container .btn-warning{
   color: #EBC3BC;
   background: #fff;
-  border-color: #b8b8b8;
+  border-color: #eee;
   transition: all .2s ease-in;
 }
 
@@ -87,11 +84,11 @@
   outline: none;
 }
 
-.glyphicon-chevron-down, .grey, .glyphicon-user {
+.glyphicon-chevron-down, .grey, .glyphicon-user, .comments {
   color: #b8b8b8;
 }
 
-.comments, .glyphicon-comment{
+ .glyphicon-comment{
   color: #FFDD8C;
 }
 

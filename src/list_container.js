@@ -124,7 +124,7 @@ calculatePercentage(){
     return(
 
     <div className="container">
-      <div className="col-xs-4 col-xs-offset-4">
+      <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
         <div className="progress">
           <div className="progress-bar" role="progressbar" aria-valuenow={this.state.checkedItems.length} aria-valuemin="0" aria-valuemax={this.state.items.length } style={{width: this.calculatePercentage()+'%'}}>
             <span className="sr-only">{this.calculatePercentage()} % Complete</span>
@@ -132,7 +132,7 @@ calculatePercentage(){
         </div>
       </div>
 
-      <div className="col-xs-4 col-xs-offset-4">
+      <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
         <div className="input-group">
 
           <input className="form-control" onKeyPress={ this.enterPress } value={this.state.textInput} onChange={this.userInput} id="textInput" type="text"
@@ -150,10 +150,10 @@ calculatePercentage(){
         </span>
       </div>
     </div>
-    <div className="col-xs-4 col-xs-offset-4">
+    <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-4 col-lg-4 col-lg-offset-4">
         <List updateCheckedItems={this.updateCheckedItems} items={this.state.items}/>
     </div>
-      <div className="col-xs-4 col-xs-offset-4">
+      <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
       <button type="Button" className="btn-warning btn pull-right" onClick={this.clearCheckItems}> Clear Checked </button>
       <p className="pull-left grey"> {this.calculateTime()} minutes </p>
       </div>

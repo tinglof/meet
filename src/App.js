@@ -7,8 +7,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container app-container">
-
-          <h2>ToDo</h2>
+            <h2>Todo List</h2>
+            <p className="ingress">Add items, get them done, check them off.</p>
           <ListContainer />
 
         </div>
